@@ -24,23 +24,26 @@ The "Attr" value is category name or ordered number.
 
 All Data has likelihood value which is calculated from Attr.
 
-For the List has no ordered Attr:
- `L1 = L0 * (1 - Cn / Ct)`
+For the List has no ordered Attr: 
 
-For the Data has ordered Attr:
- `L1 = L0 * (1 - Cn / Ct) * (1 / Ndup)`
+$L_1 = L_0 (1 - \frac{Cn}{Ct})$
+
+For the Data has ordered Attr: 
+
+$L_1 = L_0 (1 - \frac{Cn}{Ct}) (\frac{1}{Ndup})$
 
 For the Data doesn't have ordered Attr, but the other data have in the list:
- `L1 = L0 * (1 - Cn / Ct) * (1 - Nt / It)`
 
-- L1 : Likelihood value of the Data.
-- L0 : Base value (= 1).
-- Cn : Number of categories on the Data.
-- Ct : Total number of categories in the list.
-- Ndup : Number of duplicated Orders of the Data in the list.
-- Nt : Total number of ordered Data in the list.
-- It : Total number of Data on the list.
-- \* flag : L1 * 0.1
+$L_1 = L_0 (1 - \frac{Cn}{Ct}) (1 - \frac{Nt}{It})$
+
+- $L_1$ : Likelihood value of the Data.
+- $L_0$ : Base value (= 1).
+- $Cn$ : Number of categories on the Data.
+- $Ct$ : Total number of categories in the list.
+- $Ndup$ : Number of duplicated Orders of the Data in the list.
+- $Nt$ : Total number of ordered Data in the list.
+- $It$ : Total number of Data on the list.
+- \* flag : $L_1 * 0.1$
 
 
 ## Views
@@ -91,8 +94,9 @@ ITEM9 :{catA}		// 0.148 = 1*(1-1/3)*(1-7/9)
  - [ITEM8, 0.223]
  - [ITEM9, 0.148]
 
- '\*' : excepted items can be omitted.
- '[]' : ITEM8 and ITEM9 are excluded from ordered items (hidden).
+Notes:
+- '\*' : excepted items can be omitted.
+- '[]' : ITEM8 and ITEM9 are excluded from ordered items (hidden).
 
 ### Categorized List view (sorted by category name and order)
 
@@ -107,8 +111,9 @@ ITEM9 :{catA}		// 0.148 = 1*(1-1/3)*(1-7/9)
  - catC: ITEM1, ITEM7,(ITEM4\*)	// 0.333 = 0.333 + 0.333 / 2
  - catB: ITEM3, ITEM6, ITEM7	// 0.444 = 0.667 + 0.333 + 0.333 / 3
 
- '{}': uncategorized or root items can be omitted.
- '\*' : excepted items can be omitted.
+Notes:
+- '{}': uncategorized or root items can be omitted.
+- '\*' : excepted items can be omitted.
 
 ### Map view (sorted by order and category name)
 
@@ -133,7 +138,8 @@ ITEM9 :{catA}		// 0.148 = 1*(1-1/3)*(1-7/9)
 | 4   | - | ITEM7 | ITEM7 | - |
 | _   | ITEM9 | - | - | (ITEM8) |
 
- '{}'(uncategorized) and '*'(excepted item) can be omitted.
+Notes:
+- '{}'(uncategorized) and '*'(excepted item) can be omitted.
 
 
 ## n-Dimention List (nested Attr)
